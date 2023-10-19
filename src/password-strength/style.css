@@ -1,0 +1,58 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+}
+input {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+:root {
+  --spacing: 0.3rem;
+}
+
+#pass--input {
+  margin-top: var(--spacing);
+}
+
+.case-types {
+  display: flex;
+  justify-content: space-between;
+  color: grey;
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  gap: 1rem;
+}
+
+.pass-strength {
+  margin-top: var(--spacing);
+}
+
+progress {
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+::-webkit-progress-inner-element {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+::-webkit-progress-bar {
+  background-color: white;
+  border-radius: 10px;
+}
+
+::-webkit-progress-value {
+  border-radius: 10px;
+  background-color: red;
+}

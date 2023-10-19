@@ -1,0 +1,158 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+select,
+button {
+  font-size: 2rem;
+}
+
+input {
+  font-size: 1.5rem;
+  width: 500px;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+.success {
+  background-color: green;
+}
+
+.warning {
+  background-color: orange;
+}
+
+.error {
+  background-color: red;
+}
+
+.info {
+  background-color: antiquewhite;
+}
+
+.toast.success::before {
+  content: "✓";
+}
+
+.toast.error::before {
+  content: "✗";
+}
+
+.toast.warning::before {
+  content: "⚠";
+}
+
+.toast.info::before {
+  content: "ⓘ";
+}
+
+.toast-wrapper {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.toast {
+  padding-inline: 0.5rem;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tc-left-top .toast,
+.tc-left-bottom .toast {
+  animation-duration: 0.1s;
+  animation-name: fadeInFromLeft;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+.tc-right-bottom .toast,
+.tc-right-top .toast {
+  animation: fadeInFromRight 0.1s ease-in forwards;
+}
+
+@keyframes fadeInFromLeft {
+  0% {
+    transform: translate(-200%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes fadeInFromRight {
+  0% {
+    transform: translate(200%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.tc-left-top .toast.fadeOutFromLeft,
+.tc-left-bottom .toast.fadeOutFromLeft {
+  animation: fadeOutFromLeft 0.1s ease-in forwards;
+}
+
+@keyframes fadeOutFromLeft {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-200%, 0);
+  }
+}
+
+.tc-right-bottom .toast.fadeOutFromRight,
+.tc-right-top .toast.fadeOutFromRight {
+  animation: fadeOutFromRight 0.1s ease-in forwards;
+}
+
+@keyframes fadeOutFromRight {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(200%, 0);
+  }
+}
+
+.remove {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.tc-left-top {
+  top: 1rem;
+  left: 1rem;
+}
+
+.tc-left-bottom {
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.tc-right-top {
+  top: 1rem;
+  right: 1rem;
+}
+
+.tc-right-bottom {
+  right: 1rem;
+  bottom: 1rem;
+}

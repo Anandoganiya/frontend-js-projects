@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 1rem;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.accordion-container {
+  list-style-type: none;
+  padding: 0;
+}
+
+.accordion-steps {
+  /* border: 1px solid red; */
+  margin-bottom: 1rem;
+  background-color: white;
+}
+
+.accordion-title {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+  padding: 1rem;
+  font-weight: 700;
+}
+
+.accordion-content {
+  height: 0;
+  overflow: hidden;
+  border-bottom: 1px solid black;
+  padding-inline: 1rem;
+  transition: all 300ms ease-in-out;
+}
+
+.active {
+  height: 100px;
+  padding-block: 1rem;
+}
+
+.arrow {
+  transition: all 300ms ease-in-out;
+}
+
+.rotate-arrow {
+  transform: rotate(180deg);
+}

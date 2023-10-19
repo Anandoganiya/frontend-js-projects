@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toast Popup</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <form action="" class="form-wrapper">
+        <div>
+          <select name="horizontal-selector" id="horizontal-selector">
+            <option value="left">left</option>
+            <option value="right">right</option>
+          </select>
+        </div>
+        <div>
+          <select name="vertical-selector" id="vertical-selector">
+            <option value="Top">Top</option>
+            <option value="Bottom">Bottom</option>
+          </select>
+        </div>
+        <div>
+          <select name="indicator" id="indicator">
+            <option value="success">success</option>
+            <option value="error">error</option>
+            <option value="warning">warning</option>
+            <option value="info">info</option>
+          </select>
+        </div>
+        <input
+          type="text"
+          name=""
+          id="toast-message__input"
+          value="This is the textThis is a toast message!"
+        />
+        <div>
+          <label for="duration">Duration</label>
+          <input id="duration" name="duration" type="range" min="1" max="5" />
+        </div>
+        <button type="submit" class="show-toast">Show Toast</button>
+      </form>
+    </main>
+
+    <div class="toast-wrapper tc-left-top"></div>
+    <div class="toast-wrapper tc-left-bottom"></div>
+    <div class="toast-wrapper tc-right-top"></div>
+    <div class="toast-wrapper tc-right-bottom"></div>
+
+    <template id="toast-template">
+      <div class="toast">
+        <span class="toast-message"></span>
+        <button class="remove">&#x2715;</button>
+      </div>
+    </template>
+  </body>
+</html>

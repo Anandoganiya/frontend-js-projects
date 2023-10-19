@@ -1,0 +1,30 @@
+body {
+  display: grid;
+  place-items: center;
+}
+
+main div {
+  font-size: 2rem;
+}
+
+.guess-input {
+  margin-top: 1rem;
+  font-size: 2rem;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.button-container button {
+  font-size: 1rem;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  padding: 1rem 3rem;
+  font-weight: 600;
+  cursor: pointer;
+}

@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.counter-state {
+  font-size: 5rem;
+  color: burlywood;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.button-style {
+  font-size: 3rem;
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  background-color: burlywood;
+  cursor: pointer;
+  text-align: center;
+}
+
+.inc-dec-container {
+  margin-top: 1rem;
+}
+
+.inc-dec-title {
+  font-size: 1.5rem;
+}
+
+.inc-dec--modifier {
+  width: 100px;
+  font-size: 2rem;
+}
+
+.reset-button {
+  margin-top: 1rem;
+}
