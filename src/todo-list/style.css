@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.items-list {
+  list-style-type: none;
+}
+.items-list > li {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.checked {
+  text-decoration: line-through;
+}
