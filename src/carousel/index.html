@@ -12,16 +12,43 @@
         <button class="arrow-button left-arrow"><</button>
         
         <div class="images-container">
+           <div class="slides">
             <img src="images/1.jpg" alt="">
+           </div>
+           <div class="slides">
             <img src="images/2.jpg" alt="">
+           </div>
+           <div class="slides">
             <img src="images/3.jpg" alt="">
+           </div>
+           <div class="slides">
             <img src="images/4.jpg" alt="">
+           </div>
+           <div class="slides">
             <img src="images/5.jpg" alt="">
+           </div>
         </div>
        
         <button class="arrow-button right-arrow">></button>
-        
+
+        <div class="options">
+            <div>
+                Infinite Scroll
+                <input type="checkbox" id="infinite-scroll-flag">
+            </div>
+            <div>
+                AutoPlay
+                <input type="checkbox" id="autoplay-flag">
+            </div>
+            <div>
+                AutoPlay Interval
+                <input type="range" id="autoplay-interval-range" min="1000" max="10000" step="1000">
+            </div>
+            <ul class="dot-wrapper">
+            </ul>
+        </div>
     </main>
+   
     <script src="app.js"></script>
 </body>
 </html>
