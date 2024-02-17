@@ -6,128 +6,107 @@ const infiniteScroll = document.querySelector('#infinite-scroll-flag');
 const autoPlay = document.querySelector('#autoplay-flag');
 const autoPlayInterval = document.querySelector('#autoplay-interval-range');
 const dots = document.querySelector('.dot-wrapper');
+const maxSlide = slides.length - 1;
 
 let currentSlider = 0;
 let intervalId = 0;
-let maxSlide = slides.length - 1;
 autoPlayInterval.disabled = true;
 
-// next 
-nextButton.addEventListener('click',moveRight)
+nextButton.addEventListener('click', moveSliderRight);
+prevButton.addEventListener('click', moveSliderLeft);
+autoPlay.addEventListener('change', handleAutoPlayChange);
+autoPlayInterval.addEventListener('change', handleAutoPlayIntervalChange);
+dots.addEventListener('click', handleDotClick);
+infiniteScroll.addEventListener('change', handleInfiniteScrollChange);
 
-// prev
-prevButton.addEventListener('click', moveLeft)
+function moveSliderRight() {
+  if (currentSlider === maxSlide) {
+    if (!infiniteScroll.checked) return;
+    currentSlider = 0;
+  } else {
+    ++currentSlider;
+  }
+  updateButtonState();
+  updateSliderTransform();
+  updateDot();
+}
 
-// autoplay
-autoPlay.addEventListener('change', event => {
+function moveSliderLeft() {
+  if (currentSlider === 0) {
+    if (!infiniteScroll.checked) return;
+    currentSlider = maxSlide;
+  } else {
+    --currentSlider;
+  }
+  updateButtonState();
+  updateSliderTransform();
+  updateDot();
+}
+
+function handleAutoPlayChange() {
   autoPlayInterval.disabled = !autoPlay.checked;
   if (autoPlay.checked) {
-    intervalId = setInterval(moveRight,Number(autoPlayInterval.value))
+    intervalId = setInterval(moveSliderRight, Number(autoPlayInterval.value));
   } else {
-    clearInterval(intervalId)
+    clearInterval(intervalId);
   }
-})
+}
 
-// autoplay interval
-autoPlayInterval.addEventListener('change', (event) => {
+function handleAutoPlayIntervalChange() {
   clearInterval(intervalId);
-  intervalId = setInterval(moveRight,Number(autoPlayInterval.value))
-})
+  intervalId = setInterval(moveSliderRight, Number(autoPlayInterval.value));
+}
 
-// dots
-dots.addEventListener('click', (event) => {
+function handleDotClick(event) {
   if (!event.target.classList.contains('dot')) return;
-  const dotIndex = Number(event.target.dataset.index)
-  currentSlider = dotIndex;
- 
+  currentSlider = Number(event.target.dataset.index);
+  updateSliderTransform();
+  updateDot();
+}
+
+function handleInfiniteScrollChange() {
+  updateButtonState();
+}
+
+function updateButtonState() {
+  prevButton.disabled = (currentSlider === 0 && !infiniteScroll.checked);
+  nextButton.disabled = (currentSlider === maxSlide && !infiniteScroll.checked);
+}
+
+function updateSliderTransform() {
   slides.forEach((slide, index) => {
-    slide.style.transform = `translateX(${100 * (index - currentSlider)}%)`
-  })
-  updateDot(currentSlider)
-})
-
-infiniteScroll.addEventListener('change', () => {
-  if (currentSlider === 0 && !infiniteScroll.checked) {
-    prevButton.disabled = true;
-  }
-  else if (currentSlider === maxSlide && !infiniteScroll.checked) {
-    nextButton.disabled = true;
-  } else {
-    prevButton.disabled = false;
-    nextButton.disabled = false;
-  }
-})
-
-
-function moveRight() {
-  
-  if (currentSlider === maxSlide) {
-    if (!infiniteScroll.checked) return; 
-    currentSlider = 0;
-    } else {
-    ++currentSlider;
-    if (currentSlider === maxSlide && !infiniteScroll.checked) nextButton.disabled = true;
-    else {
-      nextButton.disabled = false;
-      prevButton.disabled = false;
-    }
-  }
-
-slides.forEach((slide, index) => {
-      slide.style.transform = `translateX(${100 * (index - currentSlider)}%)`
-    })
-    updateDot(currentSlider);
+    slide.style.transform = `translateX(${100 * (index - currentSlider)}%)`;
+  });
 }
 
-function moveLeft() {
-  
-  if (currentSlider === 0) {
-    if (!infiniteScroll.checked) return; 
-        currentSlider  = maxSlide
-      } else {
-    --currentSlider;
-    if (currentSlider === 0 && !infiniteScroll.checked) prevButton.disabled = true;
-    else {
-      prevButton.disabled = false;
-      nextButton.disabled = false;
-       }
-      }
-    slides.forEach((slide, index) => {
-        slide.style.transform = `translateX(${100 * (index - currentSlider)}%)`
-      })
-      updateDot(currentSlider)
-}
-
-
-function updateDot(currentIndex) {
+function updateDot() {
+  const activeDot = dots.querySelector('.dot-active');
+  if (activeDot) {
+    activeDot.classList.remove('dot-active');
+  }
   const dot = dots.querySelector(`[data-index='${currentSlider}']`);
-  const doty = dots.children;
-  for (let i = 0; i < doty.length; i++) {
-    const dotButton = doty[i].firstChild;
-    dotButton.classList.remove('dot-active')
+  if (dot) {
+    dot.classList.add('dot-active');
   }
-  dot.classList.add('dot-active');
 }
 
 function init() {
-
-  slides.forEach((slide,index) => {
+  slides.forEach((slide, index) => {
     slide.style.transform = `translateX(${index * 100}%)`;
-    
+
     const li = document.createElement('li');
-    const button = document.createElement('button')
-    button.classList.add('dot')
+    const button = document.createElement('button');
+    button.classList.add('dot');
     button.role = 'tab';
     button.dataset.index = index;
-    li.appendChild(button)
-    dots.appendChild(li)
-  
+    li.appendChild(button);
+    dots.appendChild(li);
+
     if (index === 0) {
       prevButton.disabled = true;
-      button.classList.add('dot-active')
+      button.classList.add('dot-active');
     }
-    
   });
-  
 }
+
 init();
