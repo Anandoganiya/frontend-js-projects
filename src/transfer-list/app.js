@@ -6,7 +6,6 @@ const allRightArrow = document.querySelector('.all-right-transfer');
 const leftArrow = document.querySelector('.left-transfer');
 const rightArrow = document.querySelector('.right-transfer');
 
-
 const leftItems = ['JS', 'HTML', 'CSS', 'TS'];
 const rightItems = ['React', 'Angular', 'Vue', 'Svelte'];
 
@@ -24,6 +23,14 @@ function createListItemElement(item) {
     return div;
 }
 
+function setButtonState() {
+    allLeftArrow.disabled = !rightContainer.childElementCount;
+    leftArrow.disabled = !rightContainer.querySelector('input:checked')
+    rightArrow.disabled = !leftContainer.querySelector('input:checked')
+    allRightArrow.disabled = !leftContainer.childElementCount;
+}
+
+
 allLeftArrow.addEventListener('click', (event) => {
     const totalRightItems = [];
     const rightItems = rightContainer.children;
@@ -35,10 +42,7 @@ allLeftArrow.addEventListener('click', (event) => {
         leftContainer.appendChild(itemDiv);
     }
     rightContainer.innerHTML = '';
-    if (!rightContainer.children.length) 
-        allLeftArrow.disabled = true;
-    if (leftContainer.children.length) 
-        allRightArrow.disabled = false;
+    setButtonState()
 })
 
 allRightArrow.addEventListener('click', (event) => {
@@ -52,14 +56,12 @@ allRightArrow.addEventListener('click', (event) => {
         rightContainer.appendChild(itemDiv);
     }
     leftContainer.innerHTML = '';
-    if (!leftContainer.children.length) 
-    allRightArrow.disabled = true;
-    if (rightContainer.children.length) 
-        allLeftArrow.disabled = false;
+        setButtonState()
 })
 
 leftArrow.addEventListener('click', (event) => {
-    const selectedLeftItems = []
+    const selectedLeftItems = [];
+   
     for (let i = 0; i < rightContainer.children.length; i++) {
         const item = rightContainer.children[i].firstChild.value;
         if (rightContainer.children[i].firstChild.checked) {
@@ -79,6 +81,7 @@ leftArrow.addEventListener('click', (event) => {
     for (let item of selectedLeftItems) {
         leftContainer.appendChild(createListItemElement(item));
     }
+    setButtonState()
 })
 
 rightArrow.addEventListener('click', (event) => {
@@ -98,11 +101,21 @@ rightArrow.addEventListener('click', (event) => {
         }
     }
     
-   
     for (let item of selectedRightItems) {
         rightContainer.appendChild(createListItemElement(item));
     }
+    setButtonState()
 })
+
+leftContainer.addEventListener('click', (event) => {
+    if (!event.target.value) return;
+setButtonState()   
+});
+
+rightContainer.addEventListener('click', (event) => {
+    if (!event.target.value) return;
+    setButtonState();
+});
 
 function init() {
 
@@ -115,7 +128,7 @@ function init() {
         const itemDiv = createListItemElement(rightItems[i]);
         rightContainer.appendChild(itemDiv);
     }
-    
+    setButtonState()
 }
 
 init();
