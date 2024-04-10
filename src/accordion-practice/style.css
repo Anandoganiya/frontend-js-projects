@@ -1,0 +1,31 @@
+body {
+    margin-inline: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+main {
+    width: 50%;
+}
+
+.step {
+    z-index: 123;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.step-desc {
+    transition: all 0.5s ease-in-out;
+    height: 0;
+    visibility: hidden;
+    padding: .5rem;
+}
+.active {
+   height: auto;
+   visibility: visible;
+}
