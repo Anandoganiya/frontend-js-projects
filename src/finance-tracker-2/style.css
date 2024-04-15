@@ -1,0 +1,21 @@
+.finance-tracker{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-inline: auto;
+    width:50%
+}
+
+.trans-list {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 50%;
+    margin-bottom: 1rem;
+}
+
+.transaction {
+    margin-block: 1rem;
+}

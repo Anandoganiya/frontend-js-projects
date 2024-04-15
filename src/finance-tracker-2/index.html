@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="finance-tracker">
+        <div class="show-balance">
+            <div >Your Balance</div>
+            <div class="total-balance"></div>
+        </div>
+        <div>Add Transaction</div>
+        <form class="trans-form">
+            <div>
+                <label for="amount-desc">
+                    Description
+                </label>
+                <input type="text" id="amount-desc">
+            </div>
+            <div>
+                <label for="amount">
+                    Amount
+                </label>
+                <input type="text" id="amount">
+            </div>
+            <div>
+              <select name="income-expense" id="income-expense">
+                <option value="1">Income</option>
+                <option value="-1">Expense</option>
+              </select>
+            </div>
+            <button class="add-trans-button">Add Transaction</button>
+        </form>
+        <div class="transaction">Transactions</div>
+   
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

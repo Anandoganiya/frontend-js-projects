@@ -1,0 +1,25 @@
+.todo-list-wrapper {
+    width:50%;
+    margin:auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#todo-input {
+    font-size: 17px;
+}
+
+.todo-list-items {
+    list-style-type: none;
+}
+
+.todo-list-item {
+    display: flex;
+    gap:.5rem;
+}
+
+.todo-list-item:not(:last-child) {
+    margin-bottom: 1rem;
+}
