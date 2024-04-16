@@ -19,16 +19,35 @@ function createItemItem(todoContent) {
 }
 
 function performOperation(e) {
-    if (e.target.value == 'Edit') {
+    const targetedButton = e.target;
+    if (targetedButton.value == 'Edit') {
         const contentElement = e.currentTarget.querySelector('.todo-content');
         const content = contentElement.textContent;
         const input = document.createElement('input');
+        input.classList.add('edit-content');
         input.value = content;
         e.currentTarget.prepend(input);
-        console.log(content)
+        targetedButton.value = 'Save';
+        targetedButton.textContent = 'Save';
         contentElement.remove();
 
-    } else if(e.target.value == "Delete") {
+    } else if(targetedButton.value == "Delete") {
         e.currentTarget.remove();
+    } else if (targetedButton.value == "Save") {
+        const inputContentElement = e.currentTarget.querySelector('.edit-content');
+        const content = inputContentElement.value;
+        const div = document.createElement('div');
+        div.textContent = content;
+        div.classList.add('todo-content');
+        e.currentTarget.prepend(div);
+        inputContentElement.remove();
+        targetedButton.value = "Edit";
+        targetedButton.textContent = "Edit";
+
     }
 }
+
+['test1', 'test2', 'test3'].forEach(item => {
+    const listItem = createItemItem(item)
+    todoListItems.appendChild(listItem)
+});
