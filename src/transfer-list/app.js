@@ -109,7 +109,7 @@ rightArrow.addEventListener('click', (event) => {
 
 leftContainer.addEventListener('click', (event) => {
     if (!event.target.value) return;
-setButtonState()   
+    setButtonState()   
 });
 
 rightContainer.addEventListener('click', (event) => {
