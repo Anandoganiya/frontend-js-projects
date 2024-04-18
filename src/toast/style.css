@@ -1,0 +1,72 @@
+body {
+    font-size: 17px;
+}
+* {
+    font-size: inherit;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.toast-container {
+    width: 50%;
+    margin:auto;
+}
+
+.toast-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.left-right, .top-bottom, .sign, #message {
+font-size: 17px;
+}
+
+.toast {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 300px;
+    position: fixed;
+    top: .5rem;
+    left: 1rem;
+}
+
+.toast-item {
+    animation-name: fadeInFromLeft;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeInFromLeft {
+    0% {
+        transform: translateX(-200%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+.fadeOutFromLeft {
+    animation-name: fadeOutFromLeft;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeOutFromLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-200%);
+    }
+}
+
+
+.toast-item {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}

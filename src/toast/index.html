@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="toast-container">
+        <form class="toast-form">
+            <select name="left-right" id="left-right">
+                <option value="left">left</option>
+                <option value="right">right</option>
+            </select>
+            <select name="top-bottom" id="top-bottom">
+                <option value="top">top</option>
+                <option value="bottom">bottom</option>
+            </select>
+            <select name="sign" id="sign">
+                <option value="success">success</option>
+                <option value="warning">warning</option>
+                <option value="info">info</option>
+                <option value="danger">danger</option>
+            </select>
+            <input type="text" name="message" id="message" autocomplete="off" value="default message">
+            <button id="show-toast-button">Show Toast</button>
+        </form>
+    </main>
+    <div class="toast toast-left-top">
+    </div>
+   
+    <script src="app.js"></script>
+</body>
+</html>
