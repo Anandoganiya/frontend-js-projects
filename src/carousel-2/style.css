@@ -17,3 +17,24 @@
     position: absolute;
     transition: transform .2s ease-in-out;
 }
+
+
+.dot-wrapper {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    cursor: pointer;
+    outline: none;
+    border:none;
+    background-color : gray;
+}
+
+.dot-active {
+    background-color: black;
+}
