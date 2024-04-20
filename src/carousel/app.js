@@ -62,6 +62,7 @@ function handleDotClick(event) {
   currentSlider = Number(event.target.dataset.index);
   updateSliderTransform();
   updateDot();
+  updateButtonState();
 }
 
 function handleInfiniteScrollChange() {

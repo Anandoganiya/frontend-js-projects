@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="carousel-container">
+        <div class="image-container">
+        </div>
+        <div class="controller">
+            <button class="move-left"><</button>
+            <button class="move-right">></button>
+            <div>
+                <label for="infinitty-scroll">Infinity Scroll</label>
+                <input type="checkbox" id="infinity-scroll">
+            </div>
+            <div>
+                <label for="auto-play">auto-play</label>
+                <input type="checkbox" id="auto-play">
+            </div>
+            <div>
+                <label for="auto-play-interval">auto play interval</label>
+                <input type="range" min="1" max="10" id="auto-play-interval">
+            </div>
+            <div class="dots">
+            </div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+.carousel-container {
+    margin:auto;
+    width:50%;
+}
+
+.image-container {
+    width: 250px;
+    height: 250px;
+    border:1px solid red;
+    position: relative;
+    overflow: hidden;
+   
+}
+
+.image-item {
+    width: 100%;
+    position: absolute;
+    transition: transform .2s ease-in-out;
+}
