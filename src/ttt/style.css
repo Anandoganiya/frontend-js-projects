@@ -3,15 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     align-items: center;
     justify-content: center;
     display: flex;
     margin-top: 1rem;
 }
+
 .container {
     width: 20%;
 }
+
 .grid {
     margin:auto;
     width: 100%;
@@ -30,4 +33,10 @@ body {
 
 .cell:hover {
     background-color: grey;
+}
+
+.reset {
+    margin-top: 1rem;
+    font-size: 20px;
+    padding-inline: 1rem;
 }
