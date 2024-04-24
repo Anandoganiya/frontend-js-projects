@@ -1,0 +1,21 @@
+.chips {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+.chip-item {
+    display: flex;
+    border: 1px solid black;
+    gap: .5rem;
+    width:max-content;
+    border-radius: 20px;
+    background-color: gray;
+    padding: .5rem;
+}
+
+.remove {
+    display: none;
+}
+.active {
+    display: block;
+}
