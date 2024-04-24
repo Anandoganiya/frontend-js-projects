@@ -7,6 +7,8 @@ class TicTacToe {
         this.gridSize = gridSize;
         this.grid = [];
         this.currentPlayer = 'X';
+        this.cellFiled = 0;
+        this.result = false;
         this.createGrid();
         this.addEventListener();
     }
@@ -39,16 +41,32 @@ class TicTacToe {
     }
 
     play(buttonCell) {
+        if (this.result) return;
         if (buttonCell.textContent == '') {
+            this.cellFiled += 1;
             buttonCell.textContent = this.currentPlayer;
             if (this.isWinner()) {
-                console.log('winner')
-                // this.callResult(this.currentPlayer);
+                this.result = true;
+                this.callResult(this.currentPlayer);
             } else if (this.cellFiled == this.gridSize * this.gridSize) {
-                // this.callResult('Draw');
+                this.result = true;
+                this.callResult('Draw');
             }
             this.updatePlayer();
         }
+    }
+
+    callResult(winner) {
+        switch (winner) {
+            case 'X':
+              document.getElementById('winner').textContent = 'Player X won!';
+              break;
+            case 'O':
+              document.getElementById('winner').textContent = 'Player O won!';
+              break;
+            default:
+              document.getElementById('winner').textContent = 'Draw!';
+          }
     }
 
     isWinner() {
@@ -99,6 +117,17 @@ class TicTacToe {
     
     updatePlayer() {
         this.currentPlayer = this.currentPlayer == 'X' ? 'O' : 'X';
+    }
+    
+    reset() {
+        this.grid.forEach(row => {
+            row.forEach(cell => {
+                cell.textContent = ''
+            })
+        })
+        this.currentPlayer = 'X'
+        this.cellFiled = 0;
+        this.result = false;
     }
 
 }
