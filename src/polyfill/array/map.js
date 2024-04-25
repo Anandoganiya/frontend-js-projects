@@ -1,16 +1,21 @@
 const numbers = [1, 2, 3, 4, 5];
-const sum = numbers.reduce((item, acc) => item * acc);
-console.log(sum)
 
-Array.prototype.MyReduce = function (callback, defaultAcc = null) {
-    let acc = defaultAcc == null ? this[0] : defaultAcc;
-    if(typeof callback != 'function') throw new Error('not an function')
-    
-    for (let index = defaultAcc == null ? 1 : 0; index < this.length; index++) {
-        acc = callback(this[index], acc, index, this);    
+function swap(l, r,arr) {
+    let temp = arr[l];
+    arr[l] = arr[r];
+    arr[r] = temp;
+}
+
+Array.prototype.MyReverse = function() {
+    let l = 0;
+    let r = this.length-1; 
+    while (l < r) {
+        swap(l, r, this);
+        l++;
+        r--;
     }
 
-    return acc;
+    return this;
 }
-console.log('custom')
-console.log(numbers.MyReduce((item, acc) => item * acc))
+
+console.log(numbers.MyReverse())
