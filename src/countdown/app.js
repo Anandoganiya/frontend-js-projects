@@ -1,17 +1,57 @@
-// array methods
-// map,filter,reduce,forEach, slice, find,findLast,findIndex, findLastIndex,
+const hour = document.querySelector('#hour')
+const min = document.querySelector('#min')
+const sec = document.querySelector('#sec')
 
-const number  = [1,2,3,4,5]
+const startBtn = document.querySelector('.start')
+const stopBtn = document.querySelector('.stop')
+const resetBtn = document.querySelector('.reset')
 
-const res = number.find(item => item == 2)
-console.log(res)
+let countDownTimer = null;
 
-Array.prototype.myFind = function (callback) {
+startBtn.addEventListener('click', e => {
+    if (hour.value == 0 && min.value == 0 && sec.value == 0) return;
+    
+    countDownTimer = setInterval(() =>
+    timer()
+    , 1000)
+})
 
-    for (let i = 0; i < this.length; i++) {
-        if (callback(this[i])) return i;
+function timer() {
+    // format the time
+    if (sec.value > 60) {
+        min.value++;
+        sec.value = parseInt(sec.value) - 59;
+    }
+    if (min.value > 60) {
+        hour.value++;
+        min.value = parseInt(min.value) - 60;
+    }
+    min.value = min.value > 60 ? 60 : min.value;
+    
+    if (hour.value == 0 && min.value == 0 && sec.value == 0) {
+        hour.value = ""
+        min.value = ""
+        sec.value = ""
+        return;
+    } else if (sec.value != 0) {
+        sec.value = `${sec.value <= 10 ? "0" : ""}${sec.value - 1}`;
+    } else if (min.value != 0) {
+        sec.value = 59;
+        min.value = `${min.value <= 10 ? "0" : ""}${min.value - 1}`;
+    }
+    else if (hour.value != 0) {
+        min.value = 60;
+        hour.value = `${hour.value <= 10 ? "0" : ""}${hour.value - 1}`;
     }
 }
 
-const res2 = number.myFind(item=>item == 2)
-console.log(res2)
+stopBtn.addEventListener('click', e => {
+    clearInterval(countDownTimer);
+})
+
+resetBtn.addEventListener('click', e => {
+    hour.value = "";
+    sec.value = "";
+    min.value = "";
+    clearInterval(countDownTimer);
+})

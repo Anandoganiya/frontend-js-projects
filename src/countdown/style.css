@@ -1,0 +1,10 @@
+.flex {
+    display: flex;
+}
+
+.align-vertical  {
+    width:100px;
+    display: flex;
+    flex-direction: column;
+}
+    

@@ -7,6 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main>
+        <header>Count Down Timer</header>
+     <div class="flex">
+        <div class="align-vertical">
+            <label for="hour">hour</label>
+            <input autocomplete="off" type="number" maxlength="2" id="hour" placeholder="00"  oninput="this.value=this.value.slice(0,this.maxLength)">
+        </div>
+        <div class="align-vertical">
+            <label for="min">min</label>
+            <input autocomplete="off" type="number" maxlength="2" id="min" placeholder="00" oninput="this.value=this.value.slice(0,this.maxLength)">
+        </div>
+        <div class="align-vertical">
+            <label for="sec">sec</label>
+            <input autocomplete="off" type="number" maxlength="2" id="sec" placeholder="00" oninput="this.value=this.value.slice(0,this.maxLength)">
+        </div>
+     </div>
+     <div>
+        <button class="btn start">start</button>
+        <button class="btn stop" >stop</button>
+        <button class="btn reset">reset</button>
+     </div>
+    </main>
     <script src="app.js"></script>
 </body>
 </html>
