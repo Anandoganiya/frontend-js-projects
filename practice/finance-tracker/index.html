@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+   <main class="trans_container">
+       <form action="" class="trans_form">
+            <div>Add Transactions</div>
+            <label for="desc">Description</label>
+            <input type="text" name="desc" id="">
+            <label for="amount">Amount</label>
+            <input placeholder="Enter amount" type="number" name="amount" id="">
+            <select name="" id="transaction_type">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <button>Add Transaction</button>
+       </form>
+       <div>Transactions</div>
+       <ul class="transaction_list">
+         <li class="list-item">
+            <div class="green_color">desc</div>
+            <div class="green_color">$32333.0</div>
+         </li>
+       </ul>
+   </main>
+</body>
+</html>

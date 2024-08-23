@@ -1,0 +1,22 @@
+.transfer-list-wrapper {
+    display: flex;
+    border : 1px solid black;
+    gap: 1rem;
+    width: 70%;
+    margin: auto;
+}
+
+.left-list {
+    width: 40%;
+}
+
+.right-list {
+    width: 40%;
+}
+
+.control-buttons {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}

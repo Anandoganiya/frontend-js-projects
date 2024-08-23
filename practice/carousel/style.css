@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.image-frame {
+    overflow: hidden;
+    width: 256px;
+    height: 256px;
+}
+
+.btn {
+    z-index: 2;
+}
+
+.image-holder {
+    display: flex;
+    transition: all .1s ease-in-out;
+  border: 2px solid red;
+}

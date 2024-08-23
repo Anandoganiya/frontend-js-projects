@@ -1,0 +1,17 @@
+
+.ttt-container {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cell {
+    text-align: center;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+

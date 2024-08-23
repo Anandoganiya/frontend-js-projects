@@ -1,0 +1,20 @@
+.trans_container {
+    max-width: 500px;
+}
+.trans_form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.green_color {
+    color:green;
+}
+.red_color {
+    color:red;
+}

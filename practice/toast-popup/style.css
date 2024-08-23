@@ -1,0 +1,54 @@
+    body {
+        box-sizing: border-box;
+        position: relative;
+        padding: 0;
+        margin: 0;
+    }
+
+    .toast-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .toast-item {
+        border: 1px solid red;
+        max-width: 250px;
+        display: flex;
+        justify-content: space-between;
+        background-color: green;
+        padding: 1rem .5rem;
+        gap: .5rem;
+    }
+
+    .left-top-container {
+        border: 1px solid black;
+        position: absolute;
+        top: 0;
+        width:250px;
+    }
+
+    .fadeIn {
+        animation: fadeIn .5s ease-in-out;
+    }
+    .fadeOut {
+        animation: fadeOut .5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            transform: translateX(-250px);
+        }
+        100% {
+            transform: translateX(0px);
+        }
+    }
+    @keyframes fadeOut {
+        0% {
+            transform: translateX(0px);
+        }
+        100% {
+            transform: translateX(-250px);
+        }
+    }
