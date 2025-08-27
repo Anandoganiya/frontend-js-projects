@@ -1,2 +1,11 @@
+pipeline {
+  agent {label 'agent-node-1'}
 
-test
+  stages {
+    stage {
+      steps {
+        echo "hello"
+      }
+    }
+  }
+}
