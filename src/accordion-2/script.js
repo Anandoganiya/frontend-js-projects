@@ -2,7 +2,7 @@ const data = [
     {
         id:1,
         title: "step 1",
-        desc: "Lorem ipsum dolor t amet consectetur, adipisicing elit.Alias maxime ratione in animi facere dolore explicab",
+        desc: "Lorem ipsum dolor t amet consectetur, adipisicing elit.Alias maxime ratione in animi facere dolore explicab test",
     },
     {
         id:2,
