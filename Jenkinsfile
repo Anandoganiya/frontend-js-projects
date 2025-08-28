@@ -1,10 +1,12 @@
 pipeline {
     agent any
-
+    triggers {
+        githubPush()
+    }
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                echo "Building..."
             }
         }
     }
