@@ -1,12 +1,8 @@
-// This must be at the very top
-properties([
-    pipelineTriggers([
-        githubPush()
-    ])
-])
-
 pipeline {
     agent any
+    triggers {
+        githubPush()
+    }
     stages {
         stage('Build') {
             steps {
